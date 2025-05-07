@@ -100,6 +100,7 @@ html {
 
 body {
   font-family: "Poppins";
+  background-color: #f4f4f9;
 }
 
 .wrapper {
@@ -123,6 +124,42 @@ body {
   margin: 0 auto;
   padding: 0 0.9375rem;
   max-width: 89.375rem;
+}
+
+.hero {
+  padding: 6.25rem 0;
+  background-color: #2400ff;
+  color: #fff;
+}
+.hero__container {
+  display: grid;
+  place-items: center;
+}
+.hero__title {
+  font-weight: 700;
+  text-align: center;
+}
+@media (min-width: 89.375em) {
+  .hero__title {
+    font-size: 2.1875rem;
+  }
+}
+@media (min-width: 20em) and (max-width: 89.375em) {
+  @supports (font-size: clamp( 1.5625rem , 1.3823198198rem  +  0.9009009009vw , 2.1875rem )) {
+    .hero__title {
+      font-size: clamp( 1.5625rem , 1.3823198198rem  +  0.9009009009vw , 2.1875rem );
+    }
+  }
+  @supports not (font-size: clamp( 1.5625rem , 1.3823198198rem  +  0.9009009009vw , 2.1875rem )) {
+    .hero__title {
+      font-size: calc(1.5625rem + 0.625 * (100vw - 20rem) / 69.375);
+    }
+  }
+}
+@media (max-width: 20em) {
+  .hero__title {
+    font-size: 1.5625rem;
+  }
 }
 
 .header {
@@ -155,9 +192,12 @@ body {
 }
 
 .item-news {
-  padding: 0.9375rem;
-  border-radius: 0.75rem;
-  border: 0.0625rem solid #beb8b8;
+  background: white;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+  padding: 1.5rem;
   max-width: 43.75rem;
   width: 100%;
 }
@@ -237,6 +277,8 @@ body {
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 50%;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
 }
 .comment__content {
   display: grid;
@@ -247,4 +289,5 @@ body {
 }
 .comment__text {
   color: #585656;
+  line-height: 1.2;
 }
