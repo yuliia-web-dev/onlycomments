@@ -17,7 +17,7 @@ $minWidth: 320;
 // Ширина полотна (макету)
 $maxWidth: 1920;
 // Ширина обмежуючого контейнера (0 = немає обмеження)
-$maxWidthContainer: 1170;
+$maxWidthContainer: 1400;
 // Загальний відступ у контейнера
 // (30 = по 15px ліворуч і праворуч, 0 = немає відступу)
 $containerPadding: 30;
@@ -27,7 +27,7 @@ html {
 	scroll-behavior: smooth;
 }
 body {
-	
+	font-family: "Poppins";
 }
 .wrapper {
 	overflow: clip;
@@ -42,5 +42,131 @@ body {
 [class*="__container"] {
 	margin: 0 auto;
 	padding: 0 toRem(15);
+	max-width: toRem(1430);
 }
 
+.header {
+	display: grid;
+	place-items: center;
+	padding: toRem(20) 0;
+	&__logo {
+		max-width: toRem(300);
+		height: auto;
+		width: 100%;
+
+	}
+}
+
+.news {
+	padding-top: toRem(100);
+	padding-bottom: toRem(100);
+	@media(max-width:toEn(480)){
+		padding-top: toRem(50);
+	padding-bottom: toRem(50);
+	}
+	// .news__container
+
+	&__container {
+		display: grid;
+		place-items: center;
+	}
+
+	// .news__item
+
+	&__item {
+		&:not(:last-child){
+			margin-bottom: toRem(30);
+		}
+	}
+}
+.item-news {
+	padding: toRem(15);
+	border-radius: toRem(12);
+	border: toRem(1) solid #beb8b8;
+	max-width: toRem(700);
+	width: 100%;
+
+	&__content {
+		margin-bottom: toRem(20);
+	}
+	// .item-news__header
+
+	&__header {
+		display: flex;
+		align-items: center;
+		gap: toRem(20);
+		margin-bottom: toRem(20);
+	}
+
+	// .item-news__icon
+
+	&__icon {
+		width: toRem(50);
+		height: toRem(50);
+		border-radius: 50%;
+		object-fit: contain;
+	}
+
+	// .item-news__info
+
+	&__info {
+		display: grid;
+		gap: toRem(15);
+	}
+	&__title {
+		@include adaptiveValue("font-size",20,18);
+		font-weight: 600;
+	}
+	// .item-news__text
+
+	&__text {
+		font-size: toRem(18);
+		font-weight: 500;
+		margin-bottom: toRem(10);
+	}
+
+	// .item-news__image
+
+	&__image {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+}
+
+.comment {
+	display: flex;
+	gap: toRem(15);
+	padding-bottom: toRem(10);
+
+	&:not(:last-child) {
+		margin-bottom: toRem(20);
+		border-bottom: toRem(1) solid #beb8b8;
+	}
+	// .comment__user-img
+
+	&__user-img {
+		width: toRem(40);
+		height: toRem(40);
+		border-radius: 50%;
+	}
+
+	// .comment__content
+
+	&__content {
+		display: grid;
+		gap: toRem(10);
+	}
+
+	// .comment__username
+
+	&__username {
+		font-weight: 500;
+	}
+
+	// .comment__text
+
+	&__text {
+		color: #585656;
+	}
+}
